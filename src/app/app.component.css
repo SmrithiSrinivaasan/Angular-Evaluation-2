@@ -1,3 +1,19 @@
-p {
-  font-family: Lato;
+.check {
+  background-color: red;
+}
+
+.pie{
+  height: 150px;
+}
+
+.gauge{
+  height: 150px;
+}
+
+.map{
+  height: 200px;
+}
+
+.text{
+  height:100px;
 }
