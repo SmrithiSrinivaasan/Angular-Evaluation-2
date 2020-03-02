@@ -1,7 +1,9 @@
-import { Component, NgZone, AfterViewInit } from "@angular/core";
+import { Component, NgZone, OnInit, AfterViewInit } from "@angular/core";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import * as mapboxgl from 'mapbox-gl';
+import {environment} from '../environments/environment';
 
 am4core.useTheme(am4themes_animated);
 
@@ -10,8 +12,26 @@ am4core.useTheme(am4themes_animated);
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
+
+  map : mapboxgl.Map;
+  style="mapbox://styles/mapbox/streets-v11";
+  lat=37.75;
+  lng=-122.41;
+
   constructor(private zone: NgZone) {}
+
+  ngOnInit() {
+    mapboxgl.accessToken = environment.mapbox.accessToken;
+      this.map = new mapboxgl.Map({
+        container: 'map',
+        style: this.style,
+        zoom: 13,
+        center: [this.lng, this.lat]
+    });
+    // Add map controls
+    this.map.addControl(new mapboxgl.NavigationControl());
+  }
 
   ngAfterViewInit() {
     this.zone.runOutsideAngular(() => {
