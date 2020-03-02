@@ -3,17 +3,29 @@
 }
 
 .pie{
-  height: 150px;
+  height: 250px;
+  background-color: #505771;
 }
 
 .gauge{
-  height: 150px;
+  height: 370px;
+  background-color: #505771;
 }
 
 .map{
-  height: 200px;
+  height: 500px;
+  background-color: #505771;
 }
 
 .text{
-  height:100px;
+  height:120px;
+  background-color: #505771;
+  font-size: 15px; 
+  text-align: center; 
+  color:white;
+}
+
+.number{
+  font-size:xx-large;
+  font-weight: 900;
 }
