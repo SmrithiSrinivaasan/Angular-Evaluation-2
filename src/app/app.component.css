@@ -1,15 +1,19 @@
 .check {
-  background-color: red;
+  background-color: #303950;
 }
 
 .pie{
   height: 250px;
   background-color: #505771;
+  color:white;
+  text-align: center;
 }
 
 .gauge{
   height: 370px;
   background-color: #505771;
+  color:white;
+  text-align: center;
 }
 
 .map{
