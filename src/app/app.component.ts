@@ -19,18 +19,19 @@ export class AppComponent implements AfterViewInit, OnInit {
   lat=37.75;
   lng=-122.41;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+    (mapboxgl as any).accessToken = environment.mapbox.accessToken;
+  }
 
   ngOnInit() {
-    mapboxgl.accessToken = environment.mapbox.accessToken;
-      this.map = new mapboxgl.Map({
-        container: 'map',
-        style: this.style,
-        zoom: 13,
-        center: [this.lng, this.lat]
+    this.map=new mapboxgl.Map({
+      container: 'map',
+      style: this.style,
+      zoom: 2,
+      center: [-120,50],
     });
-    // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
+   
   }
 
   ngAfterViewInit() {
@@ -55,7 +56,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     axis.max = 100;
     axis.strictMinMax = true;
     axis.renderer.radius = am4core.percent(80);
-    axis.renderer.inside = true;
+    //axis.renderer.inside = true;
     axis.renderer.line.strokeOpacity = 1;
     axis.renderer.ticks.template.disabled = false;
     axis.renderer.ticks.template.strokeOpacity = 1;
